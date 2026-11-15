@@ -39,39 +39,6 @@ func getID(r *http.Request) (int, error) {
 	return id, nil
 }
 
-// func PrintAllTasks(db *sql.DB, r *http.Request) error {
-//     ctx, cancel := context.WithTimeout(r.Context(), 3 * time.Second)
-//     defer cancel()
-// 	rows, err := db.QueryContext(ctx, "SELECT id, title, done, created_at FROM tasks")
-// 	if err != nil {
-// 		fmt.Print("Errors: ")
-// 		return err
-// 	}
-// 	defer rows.Close()
-
-// 	for rows.Next() {
-// 		var (
-// 			id         int
-// 			title      string
-// 			done       bool
-// 			created_at time.Time
-// 		)
-
-// 		err := rows.Scan(&id, &title, &done, &created_at)
-// 		if err != nil {
-// 			fmt.Print("Errors read data")
-// 			return err
-// 		}
-// 		fmt.Printf("%d: %s - Status: %v (Time created: %v)\n", id, title, done, created_at)
-// 	}
-
-// 	if err := rows.Err(); err != nil {
-// 		fmt.Print("ошибка при обходе: ")
-// 		return err
-// 	}
-// 	return nil
-// }
-
 func (s *Server) getHadnler(w http.ResponseWriter, r *http.Request) {
 	ctx, cancel := context.WithTimeout(r.Context(), 3*time.Second)
 	defer cancel()
