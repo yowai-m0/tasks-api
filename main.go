@@ -36,6 +36,9 @@ func getID(r *http.Request) (int, error) {
 	if err != nil {
 		return 0, err
 	}
+	if id <= 0 {
+		return 0, errors.New("Invalid id") 
+	}
 	return id, nil
 }
 
